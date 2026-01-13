@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bugReportContainer" class="container hidden">
+        <div class="bug-report-card">
+            <div class="card-glow"></div>
+            <div class="header">
+                <div class="header-content">
+                    <div class="icon-wrapper">
+                        <svg class="bug-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h1>Bug Report</h1>
+                </div>
+                <button class="close-btn" id="closeBtn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="bugReportForm">
+                <div class="form-group">
+                    <label for="bugTitle">Title *</label>
+                    <input type="text" id="bugTitle" name="title" placeholder="A brief description of the bug." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bugCategory">Category *</label>
+                    <select id="bugCategory" name="category" required>
+                        <option value="">Select...</option>
+                        <option value="gameplay">Gameplay</option>
+                        <option value="ui">UI</option>
+                        <option value="performance">Performance</option>
+                        <option value="item">Item</option>
+                        <option value="vehicle">Vehicle</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bugDescription">Description *</label>
+                    <textarea id="bugDescription" name="description" rows="6" placeholder="Describe the bug in detail...." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="bugSteps">Steps (Optional)</label>
+                    <textarea id="bugSteps" name="steps" rows="4" placeholder="You can add the steps and a link to replicate the bug."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="bugPriority">Priority</label>
+                    <select id="bugPriority" name="priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="bugListContainer" class="container hidden">
+        <div class="bug-list-card">
+            <div class="card-glow"></div>
+            <div class="header">
+                <div class="header-content">
+                    <div class="icon-wrapper">
+                        <svg class="bug-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11H7V9H9V11ZM9 7H7V5H9V7ZM9 15H7V13H9V15ZM11 11H13V9H11V11ZM13 7H11V5H13V7ZM13 15H11V13H13V15ZM17 11H15V9H17V11ZM15 7H17V5H15V7ZM17 15H15V13H17V15Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h1>Bug List</h1>
+                </div>
+                <button class="close-btn" id="closeBugListBtn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="bug-list-filters">
+                <button class="filter-btn active" data-status="all">Tümü</button>
+                <button class="filter-btn" data-status="pending">Pending</button>
+                <button class="filter-btn" data-status="checked">Checked</button>
+                <button class="filter-btn" data-status="fixed">Fixed</button>
+            </div>
+
+            <div class="bug-list-content">
+                <div id="bugListItems" class="bug-list-items">
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="nui://game/ui/jquery.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
